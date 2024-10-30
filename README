@@ -1,0 +1,38 @@
+Copyright 2022 Obreja Ana-Maria Grupa 311CA
+Tema 2 - Simulator de octave
+Programarea Calculatoarelor si Limbaje de Programare
+
+  Programul are in vedere primirea unor matrice de la tastatura si stocarea lor folosind alocarea dinamica a memoriei,
+urmand sa efectueze operatii pe baza acestora. Pentru a putea lucra eficient este nevoie de o colectie prin care sa se poata
+accesa in memorie o matrice prin intermediul unui index, asa ca am creat un tablou de tip pointer. 
+    Caracter L: Pentru stocarea unei noi matrice in memorie, am redimensionat blocul si celelalte tablouri folosite care stocheaza 
+datele necesare pentru a accesa matricea si am adaugat pe pozitia data (ultima) elementele.
+    Caracter D & P: Afisarea dimensiunilor unei matrice si a valorilor sale s-a facut prin intermediul vectorilor de dimensiuni.
+Pentru dimensiuni, am afisat valorile din vectori corespunzatoare indexului dat, iar pentru afisarea matricei am accesat-o in
+blocul de memorie si am afisat continutul (numerele de linii si de coloane fiind accesat cu ajutorul vectorilor).
+    Caracterul M: Pentru a inmulti doua matrice si a stoca rezultatul la finalul colectiei, e nevoie de redimensionarea
+tablourilor. Inmultirea propriu-zisa s-a facut cu ajutorul unei functii care primeste ca parametrii pozitiile matricelor cu care se 
+face operatia.
+    Caracterul T: Operatia de transpunere a matricei se face la pozitia data (nu este nevoie de redimensionarea tablourilor).
+Folosim o auxiliara in care stocam transpusa, cu dimensiunile inversate fata de matrice (numarul de linii devine numarul de coloane
+si invers). Pentru matrice este necesar sa eliberam elementele care au fost stocate, pentru a nu avea pierderi de 
+memorie (in cazul in care dimensiunile finale sunt mai mici decat cele initiale). La final, interschimbam valorile din vectori 
+pentru linii si coloane.
+    Caracterul C: Redimensionarea unei matrici se face la pozitia data si primeste numarul de linii si liniile care sunt implicate
+(analog coloane). Asemanator operatiei de transpunere, folosim o matrice auxiliara, eliberam elementele din matricea initiala si
+adaugam noile valori. Matricea auxiliara contine elementele care se afla la intersectia dintre liniile si coloanele primite.
+    Caracterul O: Sortarea matricelor se face pe baza sumei fiecarei matrice; pentru stocarea sumelor am folosit un tablou.
+Sortarea s-a facut cu ajutorul unei functii care face schimbul dintre matrici si dintre elementele tablourilor de dimensiuni 
+(asemanator cazurilor anterioare).
+    Caracterul R: Pentru ridicarea la putere in timp logaritmic, matricea auxiliara a fost stocata la finalul blocului (pentru a
+nu fi nevoie de o noua functie de inmultire). I-am dat auxiliarei valoarea matricei identitate. In cazul in care puterea este
+impara, auxiliara lua valoarea initiala a matricei data, iar puterea scadea. Daca puterea este para, se ridica la puterea a doua
+matricea, iar puterea se injumatateste. Operatia se repeta pana cand puterea devine 1. La final, matricea se inmulteste cu
+auxiliara (daca puterea a fost initial impara, puterea va creste cu 1 unitate, daca a fost para, ramane la fel, auxiliara fiind
+matricea identitate). Eliberam din memorie matricea auxiliara si redimensionam blocul.
+    Caracterul F: Eliberarea din memorie a unei matrici de la o pozitie data se face cu ajutorul functiei de schimb, folosita si
+pentru sortare. Mutam toate matricele de la pozitia data pana la finalul blocului cu o unitate in urma, eliberam matricea de la 
+final (care este acceasi pe penultima pozitie), redimensionam blocul si dimensiunea sa scade (cu o unitate).
+    Caracterul Q: La primirea caracterului Q se opreste executia programului si se elibereaza din memorie toate elementele: vectorii
+de dimensiuni, matricele si in final blocul.
+    Programul ia in calcul si primirea de la tastatura a caracterelor nevalide si afiseaza, dupa caz, cate un mesaj.
